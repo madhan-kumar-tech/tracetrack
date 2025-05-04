@@ -1,79 +1,136 @@
-This is a new [**React Native**](https://reactnative.dev) project, bootstrapped using [`@react-native-community/cli`](https://github.com/react-native-community/cli).
+# TraceTrack
 
-# Getting Started
+TraceTrack is a cross-platform mobile application built with React Native, supporting both iOS and Android.
 
->**Note**: Make sure you have completed the [React Native - Environment Setup](https://reactnative.dev/docs/environment-setup) instructions till "Creating a new application" step, before proceeding.
+## Features
 
-## Step 1: Start the Metro Server
+- React Native architecture (0.73+)
+- TypeScript support
+- State management with Zustand
+- Navigation with React Navigation
+- API data fetching with React Query
+- Pre-configured ESLint and Prettier for code quality
+- Husky for Git hooks
+- Easy feature scaffolding via scripts
 
-First, you will need to start **Metro**, the JavaScript _bundler_ that ships _with_ React Native.
+## Getting Started
 
-To start Metro, run the following command from the _root_ of your React Native project:
+### Prerequisites
 
-```bash
-# using npm
-npm start
+- Node.js v18.20.8
+- npm v10.8.2
+- Ruby v3.1.7
+- CocoaPods v1.13.0
+- Java OpenJDK 17.0.15
+- Xcode (for iOS) v16.2
+- Android Studio (for Android)
 
-# OR using Yarn
-yarn start
+### Installation
+
+```sh
+# Install JS dependencies
+yarn
+
+# Install iOS dependencies
+cd ios && pod install && cd ..
 ```
 
-## Step 2: Start your Application
+### Running the App
 
-Let Metro Bundler run in its _own_ terminal. Open a _new_ terminal from the _root_ of your React Native project. Run the following command to start your _Android_ or _iOS_ app:
+#### iOS
 
-### For Android
-
-```bash
-# using npm
-npm run android
-
-# OR using Yarn
-yarn android
-```
-
-### For iOS
-
-```bash
-# using npm
-npm run ios
-
-# OR using Yarn
+```sh
 yarn ios
 ```
 
-If everything is set up _correctly_, you should see your new app running in your _Android Emulator_ or _iOS Simulator_ shortly provided you have set up your emulator/simulator correctly.
+#### Android
 
-This is one way to run your app — you can also run it directly from within Android Studio and Xcode respectively.
+```sh
+yarn android
+```
 
-## Step 3: Modifying your App
+### Linting & Formatting
 
-Now that you have successfully run the app, let's modify it.
+```sh
+yarn lint
+```
 
-1. Open `App.tsx` in your text editor of choice and edit some lines.
-2. For **Android**: Press the <kbd>R</kbd> key twice or select **"Reload"** from the **Developer Menu** (<kbd>Ctrl</kbd> + <kbd>M</kbd> (on Window and Linux) or <kbd>Cmd ⌘</kbd> + <kbd>M</kbd> (on macOS)) to see your changes!
+### Running Tests
 
-   For **iOS**: Hit <kbd>Cmd ⌘</kbd> + <kbd>R</kbd> in your iOS Simulator to reload the app and see your changes!
+```sh
+yarn test
+```
 
-## Congratulations! :tada:
+## Project Structure
 
-You've successfully run and modified your React Native App. :partying_face:
+The TraceTrack project is organized for clarity, scalability, and ease of maintenance. Below is an overview of the main directories and their purposes:
 
-### Now what?
+```
+src/
+  assets/         # Static assets such as images and SVGs
+  components/     # Reusable UI components, organized by atomic design (atoms, molecules, organisms, templates, pages)
+  features/       # Feature-based modules (e.g., authentication, user profile)
+    auth/         # Example feature: authentication logic, store, components, hooks, screens, services
+  i18n/           # Internationalization configuration and translation files
+android/          # Native Android project files (Gradle configs, Java/Kotlin code)
+ios/              # Native iOS project files (Xcode project, Swift/Obj-C code)
+scripts/          # Utility scripts for automation (e.g., feature generators)
+__tests__/        # Jest unit and integration tests
+```
 
-- If you want to add this new React Native code to an existing application, check out the [Integration guide](https://reactnative.dev/docs/integration-with-existing-apps).
-- If you're curious to learn more about React Native, check out the [Introduction to React Native](https://reactnative.dev/docs/getting-started).
+### Folder Descriptions
 
-# Troubleshooting
+- **src/assets/**: Contains all static files used in the app, such as images and SVGs.
+- **src/components/**: Houses reusable UI components, structured by atomic design principles for maintainability and scalability.
+- **src/features/**: Contains modular features of the app. Each feature (like `auth`) is self-contained with its own store, components, hooks, screens, and services.
+- **src/i18n/**: Manages internationalization, including translation files and configuration.
+- **android/**: Includes all native Android project files, Gradle configurations, and platform-specific code.
+- **ios/**: Includes all native iOS project files, Xcode project, and platform-specific code.
+- **scripts/**: Contains automation and helper scripts to streamline development and maintenance tasks.
+- **__tests__/**: Stores automated tests for the app, executed using Jest.
 
-If you can't get this to work, see the [Troubleshooting](https://reactnative.dev/docs/troubleshooting) page.
+This structure ensures a modular, organized, and scalable codebase, making it easier for teams to collaborate and extend the project.
 
-# Learn More
+## Scripts
+ Contains automation and helper scripts to streamline development and maintenance tasks.  
+  To quickly scaffold a new feature, run the generator script:
 
-To learn more about React Native, take a look at the following resources:
+  ```sh
+  node scripts/generate-feature.js <feature-name>
+  ```
 
-- [React Native Website](https://reactnative.dev) - learn more about React Native.
-- [Getting Started](https://reactnative.dev/docs/environment-setup) - an **overview** of React Native and how setup your environment.
-- [Learn the Basics](https://reactnative.dev/docs/getting-started) - a **guided tour** of the React Native **basics**.
-- [Blog](https://reactnative.dev/blog) - read the latest official React Native **Blog** posts.
-- [`@facebook/react-native`](https://github.com/facebook/react-native) - the Open Source; GitHub **repository** for React Native.
+  Replace `<feature-name>` with your desired feature module name.
+
+
+## Commit Guidelines & Git Hooks
+
+This project uses [git-cz](https://github.com/commitizen/cz-cli) for standardized commit messages and [Husky](https://typicode.github.io/husky/) for Git hooks automation.
+
+- **Standardized Commits:**  
+  Use `npx git-cz` instead of `git commit` to follow the Conventional Commits specification. This helps with readable commit history and better changelog generation.
+
+  ```sh
+  npx git-cz
+  ```
+
+- **Pre-commit Hooks:**  
+  Husky runs automated checks (like linting and tests) before each commit and push to ensure code quality and prevent broken code from being committed.
+
+- **How to Commit:**
+  1. Stage your changes:  
+     ```sh
+     git add .
+     ```
+  2. Run the commit wizard:  
+     ```sh
+     npx git-cz
+     ```
+  3. Follow the prompts to write a descriptive, conventional commit message.
+
+- **How to Bypass Hooks (not recommended):**  
+  If you need to skip hooks (e.g., in emergencies), use:  
+  ```sh
+  git commit --no-verify
+  ```
+
+Following these practices ensures a clean, consistent codebase and smooth collaboration for all contributors.
