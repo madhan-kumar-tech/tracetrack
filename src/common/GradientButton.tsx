@@ -1,4 +1,3 @@
-// src/components/GradientButton.tsx
 import React from 'react';
 import {
   Text,
@@ -35,7 +34,8 @@ const GradientButton: React.FC<GradientButtonProps> = ({
         colors={[Colors.primaryDark, Colors.primary]}
         start={{x: 0, y: 0}}
         end={{x: 1, y: 1}}
-        style={[styles.button, {width}]}>
+        style={[styles.button, {width}]}
+        >
         <Text style={[styles.text, textStyle]}>{title}</Text>
       </LinearGradient>
     </TouchableOpacity>
@@ -50,7 +50,7 @@ const styles = StyleSheet.create({
   },
   button: {
     paddingVertical: 12,
-    borderRadius: 8,
+    borderRadius: 4,
   },
   text: {
     color: Colors.white,

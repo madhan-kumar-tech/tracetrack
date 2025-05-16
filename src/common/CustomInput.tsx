@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, {useState} from 'react';
 import {
   View,
   TextInput,
@@ -6,9 +6,9 @@ import {
   StyleSheet,
   TouchableOpacity,
 } from 'react-native';
-import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 import Colors from './Colors';
-
+import Eye from '../assets/eye.svg';
+import EyeClose from '../assets/eye_close.svg';
 interface CustomTextInputProps extends TextInputProps {
   showToggleIcon?: boolean;
 }
@@ -20,7 +20,9 @@ const CustomTextInput: React.FC<CustomTextInputProps> = ({
   onChangeText,
   ...rest
 }) => {
-  const [hidePassword, setHidePassword] = useState<boolean>(secureTextEntry ?? false);
+  const [hidePassword, setHidePassword] = useState<boolean>(
+    secureTextEntry ?? false,
+  );
   const [realValue, setRealValue] = useState<string>(value ?? '');
   const [maskedValue, setMaskedValue] = useState<string>('');
 
@@ -47,17 +49,18 @@ const CustomTextInput: React.FC<CustomTextInputProps> = ({
           placeholderTextColor={Colors.placeholder}
           secureTextEntry={false} // keep off to allow custom masking
           value={secureTextEntry && hidePassword ? maskedValue : value}
-          onChangeText={secureTextEntry && hidePassword ? handleTextChange : onChangeText}
+          onChangeText={
+            secureTextEntry && hidePassword ? handleTextChange : onChangeText
+          }
           {...rest}
         />
         {showToggleIcon && secureTextEntry && (
           <TouchableOpacity onPress={() => setHidePassword(!hidePassword)}>
-            <Icon
-              name={hidePassword ? 'eye-off' : 'eye'}
-              size={24}
-              color={Colors.primary}
-              style={styles.icon}
-            />
+            {hidePassword ? (
+              <EyeClose width={24} height={20} />
+            ) : (
+              <Eye width={24} height={20} />
+            )}
           </TouchableOpacity>
         )}
       </View>

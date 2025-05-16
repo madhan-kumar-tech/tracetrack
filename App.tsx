@@ -11,14 +11,14 @@ import RootNavigator from './src/navigation/RootNavigator';
 
 function App(): React.JSX.Element {
   return (
-    <SafeAreaView>
-      <StatusBar />
-      <ScrollView contentInsetAdjustmentBehavior="automatic">
+    // <SafeAreaView>
+    //   <StatusBar />
+    //   <ScrollView contentInsetAdjustmentBehavior="automatic">
          <View style={{ flex: 1 }}>
           <RootNavigator />
         </View>
-      </ScrollView>
-    </SafeAreaView>
+    //   </ScrollView>
+    // </SafeAreaView>
   );
 }
 export default App;

@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, { useState } from 'react';
 import {
   View,
   Text,
@@ -7,40 +7,52 @@ import {
   Platform,
   TouchableWithoutFeedback,
   Keyboard,
+  ImageBackground,
+  TouchableOpacity,
 } from 'react-native';
 import CustomTextInput from '../common/CustomInput';
 import Colors from '../common/Colors';
 import GradientButton from '../common/GradientButton';
+import { useNavigation } from '@react-navigation/native';
+import bgImage from '../assets/background.png';
+import LeftArrow from '../assets/left_arrow.svg'; // SVG back icon
 
 const OtpLoginScreen = () => {
   const [email, setEmail] = useState('');
+  const navigation = useNavigation();
 
   const handleProceed = () => {
-    console.log('Email for OTP:', email);
+    navigation.navigate('OTPVerification');
   };
 
   return (
     <KeyboardAvoidingView
       behavior={Platform.OS === 'ios' ? 'padding' : undefined}
       style={styles.flex}>
-      <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
-        <View style={styles.container}>
-          <Text style={styles.title}>Login With Mail OTP !!!</Text>
-          <Text style={styles.subtitle}>Welcome back you’ve been missed!</Text>
-          <CustomTextInput
-            placeholder="Enter your registered mail id"
-            value={email}
-            onChangeText={setEmail}
-            keyboardType="email-address"
-            autoCapitalize="none"
-          />
-        
-          <GradientButton
-            title="Proceed"
-            onPress={() => console.log('Login pressed')}
-          />
-        </View>
-      </TouchableWithoutFeedback>
+      <ImageBackground source={bgImage} style={styles.imageBackground} resizeMode="cover">
+        <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
+          <View style={styles.container}>
+            <TouchableOpacity onPress={() => navigation.goBack()} style={styles.backButton}>
+              <LeftArrow width={24} height={24} />
+            </TouchableOpacity>
+
+            <View style={styles.content}>
+              <Text style={styles.title}>Login With Mail OTP !!!</Text>
+              <Text style={styles.subtitle}>Welcome back you’ve{'\n'}been missed!</Text>
+
+              <CustomTextInput
+                placeholder="Enter your registered mail id"
+                value={email}
+                onChangeText={setEmail}
+                keyboardType="email-address"
+                autoCapitalize="none"
+              />
+
+              <GradientButton title="PROCEED" onPress={handleProceed} />
+            </View>
+          </View>
+        </TouchableWithoutFeedback>
+      </ImageBackground>
     </KeyboardAvoidingView>
   );
 };
@@ -49,26 +61,39 @@ const styles = StyleSheet.create({
   flex: {
     flex: 1,
   },
+  imageBackground: {
+    flex: 1,
+    width: '100%',
+    height: '100%',
+  },
   container: {
     flex: 1,
-    padding: 20,
+    paddingHorizontal: 20,
+    paddingTop: 50,
+  },
+  backButton: {
+    marginBottom: 20,
+    width: 32,
+    height: 32,
     justifyContent: 'center',
-    backgroundColor: Colors.white,
+    alignItems: 'center',
+  },
+  content: {
+    flex: 1,
+    // justifyContent: 'center',
   },
   title: {
-    fontSize: 22,
+    fontSize: 20,
     fontWeight: 'bold',
     color: Colors.primary,
     textAlign: 'center',
     marginBottom: 8,
   },
   subtitle: {
-    fontSize: 16,
+    fontSize: 15,
     color: Colors.black,
     textAlign: 'center',
-    marginVertical: 24,
-    width:160,
-    alignSelf:'center'
+    marginBottom: 32,
   },
 });
 
