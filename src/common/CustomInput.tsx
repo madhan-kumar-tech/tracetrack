@@ -9,6 +9,8 @@ import {
 import Colors from './Colors';
 import Eye from '../assets/eye.svg';
 import EyeClose from '../assets/eye_close.svg';
+import { Fonts } from './fonts';
+
 interface CustomTextInputProps extends TextInputProps {
   showToggleIcon?: boolean;
 }
@@ -25,9 +27,9 @@ const CustomTextInput: React.FC<CustomTextInputProps> = ({
   );
   const [realValue, setRealValue] = useState<string>(value ?? '');
   const [maskedValue, setMaskedValue] = useState<string>('');
+  const [isFocused, setIsFocused] = useState<boolean>(false); // track focus
 
   const handleTextChange = (text: string) => {
-    // If deleting characters
     if (text.length < maskedValue.length) {
       setRealValue(realValue.slice(0, -1));
       setMaskedValue(maskedValue.slice(0, -1));
@@ -43,15 +45,23 @@ const CustomTextInput: React.FC<CustomTextInputProps> = ({
 
   return (
     <View style={styles.container}>
-      <View style={styles.inputWrapper}>
+      <View
+        style={[
+          styles.inputWrapper,
+          isFocused && { borderColor: Colors.primary }, 
+          !isFocused && { borderColor: 'transparent' }, 
+        ]}
+      >
         <TextInput
           style={styles.input}
-          placeholderTextColor={Colors.placeholder}
-          secureTextEntry={false} // keep off to allow custom masking
+          placeholderTextColor={Colors.lightgrey}
+          secureTextEntry={false}
           value={secureTextEntry && hidePassword ? maskedValue : value}
           onChangeText={
             secureTextEntry && hidePassword ? handleTextChange : onChangeText
           }
+          onFocus={() => setIsFocused(true)}      
+          onBlur={() => setIsFocused(false)} 
           {...rest}
         />
         {showToggleIcon && secureTextEntry && (
@@ -76,19 +86,17 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     backgroundColor: Colors.accent,
     borderWidth: 1,
-    borderColor: Colors.primary,
     borderRadius: 8,
     paddingHorizontal: 12,
     alignItems: 'center',
+    borderColor: 'transparent', 
   },
   input: {
     flex: 1,
     paddingVertical: 12,
     fontSize: 16,
     color: Colors.black,
-  },
-  icon: {
-    marginLeft: 8,
+    fontFamily: Fonts.Regular,
   },
 });
 

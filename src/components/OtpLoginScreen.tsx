@@ -16,6 +16,7 @@ import GradientButton from '../common/GradientButton';
 import { useNavigation } from '@react-navigation/native';
 import bgImage from '../assets/background.png';
 import LeftArrow from '../assets/left_arrow.svg'; // SVG back icon
+import { Fonts } from '../common/fonts';
 
 const OtpLoginScreen = () => {
   const [email, setEmail] = useState('');
@@ -33,7 +34,7 @@ const OtpLoginScreen = () => {
         <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
           <View style={styles.container}>
             <TouchableOpacity onPress={() => navigation.goBack()} style={styles.backButton}>
-              <LeftArrow width={24} height={24} />
+              <LeftArrow width={8} height={18} />
             </TouchableOpacity>
 
             <View style={styles.content}>
@@ -80,20 +81,20 @@ const styles = StyleSheet.create({
   },
   content: {
     flex: 1,
-    // justifyContent: 'center',
   },
   title: {
-    fontSize: 20,
-    fontWeight: 'bold',
+    fontSize: 24,
     color: Colors.primary,
     textAlign: 'center',
     marginBottom: 8,
+    fontFamily:Fonts.Bold
   },
   subtitle: {
-    fontSize: 15,
+    fontSize: 18,
     color: Colors.black,
     textAlign: 'center',
     marginBottom: 32,
+    fontFamily:Fonts.Medium
   },
 });
 

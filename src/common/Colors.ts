@@ -10,7 +10,9 @@ const Colors = {
   background: '#F9F9F9',
   inputBackground: '#F5F0F6',
   border: '#D3BFD8',
-  error: '#FF4C4C',
+  error: '#EF1206',
+  lightgrey:'#626262',
+  darkGrey: "#5B5858"
 };
 
 export default Colors;

@@ -13,8 +13,17 @@ import ForgotPasswordSVG from '../assets/forget_password.svg';
 import backgroundImg from '../assets/background.png';
 import GradientButton from '../common/GradientButton';
 import LeftArrow from '../assets/left_arrow.svg';
+import type { NativeStackScreenProps } from '@react-navigation/native-stack';
+import Colors from '../common/Colors';
+import { Fonts } from '../common/fonts';
 
-const ForgotPasswordScreen = ({navigation}) => {
+type RootStackParamList = {
+  ForgotPassword: undefined;
+  OTPVerification: { isFromForgotPassword: boolean };
+};
+type Props = NativeStackScreenProps<RootStackParamList, 'ForgotPassword'>;
+
+const ForgotPasswordScreen: React.FC<Props> = ({ navigation }) => {
   return (
     <SafeAreaView style={styles.safeArea}>
       <ImageBackground
@@ -67,7 +76,7 @@ export default ForgotPasswordScreen;
 const styles = StyleSheet.create({
   safeArea: {
     flex: 1,
-    backgroundColor: '#fff',
+    backgroundColor: Colors.white,
   },
   background: {
     flex: 1,
@@ -86,10 +95,10 @@ const styles = StyleSheet.create({
   headerTitle: {
     flex: 1,
     fontSize: 24,
-    fontWeight: 'bold',
-    color: '#6D0F49',
+    color: Colors.primary,
     textAlign: 'center',
-    marginRight: 24, // to balance the back arrow space
+    marginRight: 24,
+    fontFamily:Fonts.Bold
   },
   imageWrapper: {
     alignItems: 'center',
@@ -99,18 +108,19 @@ const styles = StyleSheet.create({
     marginBottom: 20,
   },
   title: {
-    fontSize: 22,
-    fontWeight: 'bold',
-    color: '#000',
+    fontSize: 24,
+    color: Colors.black,
     lineHeight: 30,
+    fontFamily: Fonts.Bold
   },
   description: {
-    fontSize: 14,
-    color: '#333',
+    fontSize: 18,
+    color: Colors.darkGrey,
     marginTop: 10,
+    fontFamily: Fonts.Medium
   },
   input: {
-    backgroundColor: '#F1EDF7',
+    backgroundColor: Colors.accent,
     padding: 14,
     borderRadius: 8,
     fontSize: 14,

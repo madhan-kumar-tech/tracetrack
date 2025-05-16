@@ -1,8 +1,24 @@
-import React from 'react';
-import { View, TextInput, StyleSheet, Text } from 'react-native';
+import React, { ReactNode }from 'react';
+import { View, TextInput, StyleSheet, Text,TextInputProps } from 'react-native';
 import Colors from '../common/Colors';
+import { Fonts } from './fonts';
 
-const CommonTextInput = ({ value, onChangeText, placeholder, rightIcon, error }: any) => {
+interface CommonTextInputProps extends TextInputProps {
+  value: string;
+  onChangeText: (text: string) => void;
+  placeholder?: string;
+  rightIcon?: ReactNode;
+  error?: string;
+}
+
+const CommonTextInput: React.FC<CommonTextInputProps> = ({
+  value,
+  onChangeText,
+  placeholder,
+  rightIcon,
+  error,
+  ...props
+}) => {
   return (
     <View style={{ marginBottom: 15 }}>
       <View style={styles.inputWrapper}>
@@ -10,8 +26,9 @@ const CommonTextInput = ({ value, onChangeText, placeholder, rightIcon, error }:
           value={value}
           onChangeText={onChangeText}
           placeholder={placeholder}
-          placeholderTextColor="#555"
+          placeholderTextColor={Colors.lightgrey}
           style={styles.input}
+          {...props}
         />
         {rightIcon && <View style={styles.icon}>{rightIcon}</View>}
       </View>
@@ -33,12 +50,13 @@ const styles = StyleSheet.create({
     height: 50,
     fontSize: 16,
     color: Colors.black,
+    fontFamily: Fonts.Regular
   },
   icon: {
     marginLeft: 10,
   },
   error: {
-    color: 'red',
+    color: Colors.error,
     marginTop: 4,
     fontSize: 12,
   },

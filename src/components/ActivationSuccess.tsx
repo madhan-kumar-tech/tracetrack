@@ -3,21 +3,20 @@ import {
   View,
   Text,
   StyleSheet,
-  TouchableOpacity,
   Linking,
 } from 'react-native';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import CreateAccountSvg from '../assets/create_account.svg'; // SVG as component
 import GradientButton from '../common/GradientButton';
+import Colors from '../common/Colors';
+import { Fonts } from '../common/fonts';
+import WhatsAppIcon from '../assets/whatsapp.svg';
 
 const ActivationSuccessScreen = () => {
+
   const handleContactPress = () => {
     Linking.openURL('tel:+919874552632');
   };
-
-  const handleProceed = () => {
-    
-  }
 
   return (
     <View style={styles.container}>
@@ -33,20 +32,18 @@ const ActivationSuccessScreen = () => {
           </Text>
 
           <Text style={styles.description}>
-            Your activation request has been sent.{"\n"}
-            To activate your account now, please get in touch{"\n"}
+            Your activation request has been sent.
+            To activate your account now, please get in touch
             with our customer support team using the{"\n"}
             contact details below..
           </Text>
 
           <View style={styles.phoneRow}>
-            <View style={styles.iconContainer}>
-              <Icon name="phone" size={20} color="white" />
-            </View>
+              <WhatsAppIcon width={37} height={37} style={{marginRight:16}}/>
             <Text style={styles.phoneText}>+91 98745 52632</Text>
           </View>
         </View>
-        <GradientButton title="CONTACT NOW" onPress={handleProceed} />
+        <GradientButton title="CONTACT NOW" onPress={handleContactPress} />
       </View>
     </View>
   );
@@ -71,19 +68,20 @@ const styles = StyleSheet.create({
     justifyContent: 'space-between', // Key change: Top and Bottom layout
   },
   title: {
-    color: '#6D0F49',
-    fontSize: 20,
-    fontWeight: 'bold',
+    color: Colors.primary,
+    fontSize: 24,
+    fontFamily:Fonts.Bold,
     textAlign: 'center',
   },
   subtitle: {
-    color: '#6D0F49',
+    color: Colors.primary,
   },
   description: {
-    fontSize: 14,
+    fontSize: 18,
     textAlign: 'center',
     marginTop: 15,
-    color: '#000',
+    color: Colors.black,
+    fontFamily:Fonts.Medium
   },
   phoneRow: {
     flexDirection: 'row',
@@ -91,19 +89,13 @@ const styles = StyleSheet.create({
     marginTop: 25,
     justifyContent: 'center',
   },
-  iconContainer: {
-    backgroundColor: '#2ecc71',
-    borderRadius: 8,
-    padding: 8,
-    marginRight: 10,
-  },
   phoneText: {
-    fontSize: 18,
-    fontWeight: 'bold',
-    color: '#000',
+    fontSize: 26,
+    color: Colors.black,
+    fontFamily:Fonts.Medium
   },
   button: {
-    backgroundColor: '#6D0F49',
+    backgroundColor: Colors.primary,
     paddingVertical: 14,
     paddingHorizontal: 30,
     borderRadius: 8,

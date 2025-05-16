@@ -14,6 +14,9 @@ import GradientButton from '../common/GradientButton';
 import AccountSuccessModal from '../common/AccountSucessModal';
 import {useNavigation} from '@react-navigation/native';
 import LeftArrow from '../assets/left_arrow.svg';
+import Colors from '../common/Colors';
+import {Fonts} from '../common/fonts';
+import CustomTextInput from '../common/CustomInput';
 
 const SetNewPasswordScreen = () => {
   const [password, setPassword] = useState('');
@@ -38,10 +41,9 @@ const SetNewPasswordScreen = () => {
   };
 
   const handleProceed = () => {
-    setIsVisible(false)
-    navigation.navigate('Home')
-    
-  }
+    setIsVisible(false);
+    navigation.navigate('Home');
+  };
   return (
     <ImageBackground
       source={BackgroundImage}
@@ -61,21 +63,20 @@ const SetNewPasswordScreen = () => {
           Set your new password to secure your account and get back on track!
         </Text>
 
-        <TextInput
-          style={styles.input}
+        <CustomTextInput
           placeholder="Enter your new password"
-          secureTextEntry
-          placeholderTextColor="#444"
           value={password}
           onChangeText={setPassword}
-        />
-        <TextInput
-          style={styles.input}
-          placeholder="Confirm your new password"
           secureTextEntry
-          placeholderTextColor="#444"
+          showToggleIcon
+        />
+
+        <CustomTextInput
+          placeholder="Confirm your new password"
           value={confirmPassword}
           onChangeText={setConfirmPassword}
+          secureTextEntry
+          showToggleIcon
         />
 
         <GradientButton title="SUBMIT" onPress={handleSubmit} />
@@ -98,7 +99,6 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     padding: 24,
-    justifyContent: 'center',
   },
   backButton: {
     position: 'absolute',
@@ -107,30 +107,33 @@ const styles = StyleSheet.create({
   },
   backArrow: {
     fontSize: 28,
-    color: '#000',
+    color: Colors.black,
   },
   title: {
-    fontSize: 22,
-    fontWeight: 'bold',
-    color: '#79063D',
+    fontSize: 24,
+    color: Colors.primary,
     textAlign: 'center',
     marginBottom: 10,
+    marginTop: 70,
+    fontFamily: Fonts.Bold,
   },
   subtitle: {
-    fontSize: 14,
+    fontSize: 18,
     textAlign: 'center',
     marginBottom: 30,
-    color: '#000',
+    color: Colors.black,
+    fontFamily: Fonts.Medium,
   },
   input: {
-    backgroundColor: '#F4F0F8',
+    backgroundColor: Colors.accent,
     borderWidth: 1,
-    borderColor: '#79063D',
+    borderColor: Colors.primary,
     borderRadius: 8,
     paddingHorizontal: 16,
     paddingVertical: 14,
     marginBottom: 14,
-    color: '#000',
+    color: Colors.black,
+    fontFamily: Fonts.Regular,
   },
 });
 

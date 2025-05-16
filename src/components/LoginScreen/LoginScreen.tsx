@@ -16,6 +16,7 @@ import Colors from '../../common/Colors';
 import GradientButton from '../../common/GradientButton';
 import {useNavigation} from '@react-navigation/native';
 import bgImage from '../../assets/background.png';
+import {Fonts} from '../../common/fonts';
 
 const LoginScreen: React.FC = () => {
   const navigation = useNavigation();
@@ -40,7 +41,10 @@ const LoginScreen: React.FC = () => {
     }
 
     if (!validatePassword(password)) {
-      Alert.alert('Invalid Password', 'Password must be at least 6 characters.');
+      Alert.alert(
+        'Invalid Password',
+        'Password must be at least 6 characters.',
+      );
       return;
     }
 
@@ -89,7 +93,8 @@ const LoginScreen: React.FC = () => {
               showToggleIcon
             />
 
-            <TouchableOpacity onPress={() => navigation.navigate('ForgotPassword')}>
+            <TouchableOpacity
+              onPress={() => navigation.navigate('ForgotPassword')}>
               <Text style={styles.forgot}>Forgot your password?</Text>
             </TouchableOpacity>
 
@@ -123,11 +128,11 @@ const styles = StyleSheet.create({
   container: {flex: 1},
   scrollContent: {padding: 20, justifyContent: 'center'},
   title: {
-    fontSize: 22,
-    fontWeight: 'bold',
     color: Colors.primary,
     textAlign: 'center',
     marginVertical: 8,
+    fontFamily: Fonts.Bold,
+    fontSize: 24,
   },
   subtitle: {
     textAlign: 'center',
@@ -135,14 +140,28 @@ const styles = StyleSheet.create({
     color: Colors.black,
     width: 160,
     alignSelf: 'center',
+    fontFamily: Fonts.Medium,
+    fontSize: 18,
   },
   imageBackground: {
     flex: 1,
     width: '100%',
     height: '100%',
   },
-  forgot: {textAlign: 'right', color: Colors.primary, marginVertical: 16},
-  or: {textAlign: 'center', marginVertical: 10, fontWeight: 'bold'},
+  forgot: {
+    textAlign: 'right',
+    color: Colors.primary,
+    marginVertical: 16,
+    fontFamily: Fonts.Medium,
+    fontSize: 18,
+  },
+  or: {
+    textAlign: 'center',
+    marginVertical: 10,
+    fontFamily: Fonts.Bold,
+    color: Colors.black,
+    fontSize: 20,
+  },
   otpWrapper: {alignItems: 'center'},
   otpButton: {
     flex: 1,
@@ -153,10 +172,21 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     width: 275,
     justifyContent: 'center',
-    marginVertical: 24,
+    marginVertical: 16,
   },
-  otpText: {color: Colors.primary, fontWeight: 'bold', textAlign: 'center'},
-  signup: {textAlign: 'center', color: Colors.primary, marginVertical: 8},
+  otpText: {
+    color: Colors.primary,
+    fontFamily: Fonts.Bold,
+    fontSize: 14,
+    textAlign: 'center',
+  },
+  signup: {
+    textAlign: 'center',
+    color: Colors.primary,
+    marginVertical: 8,
+    fontSize: 16,
+    fontFamily: Fonts.Regular,
+  },
 });
 
 export default LoginScreen;

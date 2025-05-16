@@ -9,6 +9,7 @@ import {
 } from 'react-native';
 import LinearGradient from 'react-native-linear-gradient';
 import Colors from '../common/Colors';
+import { Fonts } from './fonts';
 
 type GradientButtonProps = {
   title: string;
@@ -54,9 +55,9 @@ const styles = StyleSheet.create({
   },
   text: {
     color: Colors.white,
-    fontWeight: 'bold',
     textAlign: 'center',
-    fontSize: 16,
+    fontSize: 14,
+    fontFamily:Fonts.Bold,
   },
 });
 

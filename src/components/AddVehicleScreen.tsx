@@ -17,6 +17,9 @@ import BackgroundImage from '../assets/background.png';
 import Colors from '../common/Colors';
 import { useNavigation } from '@react-navigation/native';
 import LeftArrow from '../assets/left_arrow.svg';
+import { Fonts } from '../common/fonts';
+import UpArrowIcon from '../assets/uparrow_Icon.svg';
+import BarCodeIcon from '../assets/barcode.svg';
 
 const AddVehicleScreen = () => {
   const [imei, setImei] = useState('');
@@ -69,7 +72,7 @@ const AddVehicleScreen = () => {
           <ScrollView contentContainerStyle={styles.inner} keyboardShouldPersistTaps="handled">
             <Text style={styles.header}>Add Vehicle !!!</Text>
             <Text style={styles.subheader}>
-              You're just a few steps away from smarter, safer vehicle tracking
+              You&apos;re just a few steps away from smarter, safer vehicle tracking
             </Text>
 
             <TextInputField
@@ -77,7 +80,7 @@ const AddVehicleScreen = () => {
               value={imei}
               onChangeText={setImei}
               error={errors.imei}
-            //   rightIcon={<ScanIcon width={24} height={24} />}
+              rightIcon={<BarCodeIcon width={24} height={24} />}
             />
 
             <TextInputField
@@ -95,7 +98,8 @@ const AddVehicleScreen = () => {
                 editable={false}
                 pointerEvents="none"
                 error={errors.vehicleType}
-                // rightIcon={<DropdownIcon width={24} height={24} />}
+                 onChangeText={setRegistration}
+                rightIcon={<UpArrowIcon width={18} height={8} />}
               />
             </TouchableOpacity>
 
@@ -151,25 +155,28 @@ const styles = StyleSheet.create({
   inner: {
     flexGrow: 1,
     padding: 20,
-    justifyContent: 'center',
   },
   header: {
-    fontSize: 22,
-    fontWeight: '700',
+    fontSize: 24,
     color: Colors.primary,
     textAlign: 'center',
     marginBottom: 10,
+    fontFamily:Fonts.Bold
   },
   subheader: {
-    fontSize: 14,
+    fontSize: 18,
     textAlign: 'center',
     color: Colors.black,
     marginBottom: 30,
+    fontFamily:Fonts.Medium,
+    paddingHorizontal:16
   },
   signInText: {
-    marginTop: 15,
+    marginTop: 16,
     textAlign: 'center',
     color: Colors.primary,
+    fontFamily:Fonts.Regular,
+    fontSize:16
   },
   modalOverlay: {
     flex: 1,

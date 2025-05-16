@@ -6,6 +6,8 @@ import {
   StyleSheet,
   Dimensions,
   ImageBackground,
+  ViewToken,
+  ViewabilityConfig,
 } from 'react-native';
 import GradientButton from '../common/GradientButton';
 import BackgroundImage from '../assets/background.png';
@@ -13,7 +15,8 @@ import Slide1 from '../assets/slide_img1.svg';
 import Slide2 from '../assets/slide_img2.svg';
 import Slide3 from '../assets/slide_img3.svg';
 import Colors from '../common/Colors';
-import { useNavigation } from '@react-navigation/native';
+import {useNavigation} from '@react-navigation/native';
+import { Fonts } from '../common/fonts';
 
 const {width} = Dimensions.get('window');
 
@@ -41,22 +44,31 @@ const slides = [
   },
 ];
 
+type SlideItem = {
+  title: string;
+  description: string;
+  ImageComponent: React.ComponentType<string>;
+};
+
 const WalkthroughScreen = () => {
   const flatListRef = useRef(null);
-  const navigation = useNavigation()
+  const navigation = useNavigation();
   const [currentIndex, setCurrentIndex] = useState(0);
 
-  const onViewRef = useRef(({viewableItems}: any) => {
-    if (viewableItems.length > 0) {
-      setCurrentIndex(viewableItems[0].index);
-    }
+  const onViewRef = useRef(
+    ({viewableItems}: {viewableItems: Array<ViewToken>}) => {
+      if (viewableItems.length > 0) {
+        setCurrentIndex(viewableItems[0].index);
+      }
+    },
+  );
+  const viewConfigRef = useRef<ViewabilityConfig>({
+    viewAreaCoveragePercentThreshold: 50,
   });
 
-  const viewConfigRef = useRef({viewAreaCoveragePercentThreshold: 50});
-
-  const renderItem = ({item}: any) => (
+  const renderItem = ({item}: {item: SlideItem}) => (
     <View style={styles.slide}>
-     <Text style={styles.title}>{item.title}</Text>
+      <Text style={styles.title}>{item.title}</Text>
       <item.ImageComponent width={372} height={244} style={styles.image} />
       <Text style={styles.description}>{item.description}</Text>
     </View>
@@ -83,7 +95,7 @@ const WalkthroughScreen = () => {
             key={index}
             style={[
               styles.dot,
-              {backgroundColor: currentIndex === index ? '#550035' : '#ccc'},
+              {backgroundColor: currentIndex === index ? Colors.primary : Colors.placeholder},
             ]}
           />
         ))}
@@ -91,13 +103,20 @@ const WalkthroughScreen = () => {
 
       {/* Buttons */}
       <View style={styles.buttonContainer}>
-        <GradientButton title="CREATE ACCOUNT" onPress={() => {
-            navigation.navigate('CreateAccount')
-        }} width={174}/>
-        <GradientButton title="LOGIN" onPress={() => {
-                        navigation.navigate('Login')
-
-        }}  width={174} />
+        <GradientButton
+          title="CREATE ACCOUNT"
+          onPress={() => {
+            navigation.navigate('CreateAccount');
+          }}
+          width={174}
+        />
+        <GradientButton
+          title="LOGIN"
+          onPress={() => {
+            navigation.navigate('Login');
+          }}
+          width={174}
+        />
       </View>
     </ImageBackground>
   );
@@ -112,21 +131,23 @@ const styles = StyleSheet.create({
   },
   slide: {
     width: width,
-    paddingHorizontal: 20,
-    paddingTop: 30,
+    paddingHorizontal: 16,
   },
   title: {
     fontSize: 24,
-    fontWeight: '700',
     marginVertical: 20,
-    marginBottom:32,
+    marginBottom: 32,
     color: Colors.black,
+    fontFamily: Fonts.Bold,
+    paddingHorizontal: 4
   },
   description: {
     fontSize: 18,
     textAlign: 'center',
     color: Colors.black,
-    marginTop:40
+    marginTop: 20,
+    fontFamily: Fonts.Medium,
+    paddingHorizontal: 2
   },
   pagination: {
     flexDirection: 'row',
@@ -137,13 +158,16 @@ const styles = StyleSheet.create({
     height: 14,
     width: 14,
     borderRadius: 7,
-    marginHorizontal: 4,
+    marginHorizontal: 2,
   },
   buttonContainer: {
     flexDirection: 'row',
     justifyContent: 'space-around',
-    paddingHorizontal: 20,
+    paddingHorizontal: 12,
   },
+  image:{
+
+  }
 });
 
 export default WalkthroughScreen;

@@ -9,7 +9,6 @@ import {
   SafeAreaView,
   KeyboardAvoidingView,
   ScrollView,
-  Image,
 } from 'react-native';
 import Colors from '../../common/Colors';
 import GradientButton from '../../common/GradientButton';
@@ -17,6 +16,7 @@ import bgImage from '../../assets/background.png';
 import Eye from '../../assets/eye.svg';
 import EyeClose from '../../assets/eye_close.svg';
 import {useNavigation} from '@react-navigation/native';
+import { Fonts } from '../../common/fonts';
 
 const CreateAccountScreen = () => {
   const navigation = useNavigation();
@@ -36,7 +36,7 @@ const CreateAccountScreen = () => {
   };
 
   const validate = () => {
-    let newErrors = {};
+    const newErrors = {};
 
     if (!form.name) newErrors.name = 'Name is required';
     if (!/^\d{10}$/.test(form.mobile))
@@ -72,7 +72,7 @@ const CreateAccountScreen = () => {
             keyboardShouldPersistTaps="handled">
             <Text style={styles.header}>Create Account !!!</Text>
             <Text style={styles.subHeader}>
-              You're just a few steps away from smarter, safer vehicle tracking
+              You&apos;re just a few steps away from smarter, safer vehicle tracking
             </Text>
 
             <TextInput
@@ -156,7 +156,7 @@ const CreateAccountScreen = () => {
             <TouchableOpacity style={{marginTop: 20}} onPress={handleSignIn}>
               <Text style={styles.signInText}>
                 Already have an account ?{' '}
-                <Text style={{fontWeight: 'bold'}}>sign in</Text>
+                <Text>sign in</Text>
               </Text>
             </TouchableOpacity>
           </ScrollView>
@@ -174,28 +174,31 @@ const styles = StyleSheet.create({
   },
   header: {
     fontSize: 24,
-    fontWeight: '700',
     textAlign: 'center',
     color: Colors.primary,
     marginTop: 40,
+    fontFamily: Fonts.Bold
   },
   subHeader: {
     textAlign: 'center',
     color: Colors.black,
     marginVertical: 15,
     fontSize: 18,
+    fontFamily: Fonts.Medium
   },
   input: {
-    backgroundColor: '#f3f2f4',
+    backgroundColor: Colors.accent,
     borderRadius: 8,
     paddingHorizontal: 14,
     paddingVertical: 12,
     marginVertical: 6,
+    fontFamily: Fonts.Regular
+
   },
   passwordWrapper: {
     flexDirection: 'row',
     alignItems: 'center',
-    backgroundColor: '#f3f2f4',
+    backgroundColor: Colors.accent,
     borderRadius: 8,
     paddingHorizontal: 14,
     marginVertical: 6,
@@ -209,7 +212,7 @@ const styles = StyleSheet.create({
     height: 24,
   },
   error: {
-    color: 'red',
+    color: Colors.error,
     marginBottom: 4,
     marginLeft: 4,
     fontSize: 12,
@@ -218,6 +221,7 @@ const styles = StyleSheet.create({
     textAlign: 'center',
     marginTop: 10,
     color: Colors.primary,
+    fontFamily: Fonts.Regular
   },
 });
 
