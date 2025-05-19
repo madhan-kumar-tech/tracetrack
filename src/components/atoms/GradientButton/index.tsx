@@ -8,8 +8,8 @@ import {
   GestureResponderEvent,
 } from 'react-native';
 import LinearGradient from 'react-native-linear-gradient';
-import Colors from '../common/Colors';
-import { Fonts } from './fonts';
+import Colors from '../../../common/Colors';
+import { Fonts } from '../../../common/fonts';
 
 type GradientButtonProps = {
   title: string;

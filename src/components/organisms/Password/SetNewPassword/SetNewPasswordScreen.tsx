@@ -9,14 +9,14 @@ import {
   Platform,
   Alert,
 } from 'react-native';
-import BackgroundImage from '../assets/background.png';
-import GradientButton from '../common/GradientButton';
-import AccountSuccessModal from '../common/AccountSucessModal';
+import GradientButton from '../../../atoms/GradientButton';
 import {useNavigation} from '@react-navigation/native';
 import LeftArrow from '../assets/left_arrow.svg';
-import Colors from '../common/Colors';
-import {Fonts} from '../common/fonts';
-import CustomTextInput from '../common/CustomInput';
+import {IMAGES} from '../../../../common/utils/images'
+import CustomTextInput from '../../../../common/CustomInput';
+import AccountSuccessModal from '../../../../common/AccountSucessModal';
+import Colors from '../../../../common/Colors';
+import { Fonts } from '../../../../common/fonts';
 
 const SetNewPasswordScreen = () => {
   const [password, setPassword] = useState('');
@@ -46,7 +46,7 @@ const SetNewPasswordScreen = () => {
   };
   return (
     <ImageBackground
-      source={BackgroundImage}
+      source={IMAGES.AppBackgroundImage}
       style={styles.background}
       resizeMode="cover">
       <KeyboardAvoidingView

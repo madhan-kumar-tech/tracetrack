@@ -11,12 +11,12 @@ import {
   ImageBackground,
   Alert,
 } from 'react-native';
-import CustomTextInput from '../../common/CustomInput';
-import Colors from '../../common/Colors';
-import GradientButton from '../../common/GradientButton';
-import {useNavigation} from '@react-navigation/native';
-import bgImage from '../../assets/background.png';
-import {Fonts} from '../../common/fonts';
+import { IMAGES } from '../../../common/utils/images';
+import { useNavigation } from '@react-navigation/native';
+import CustomTextInput from '../../../common/CustomInput';
+import GradientButton from '../../atoms/GradientButton';
+import Colors from '../../../common/Colors';
+import { Fonts } from '../../../common/fonts';
 
 const LoginScreen: React.FC = () => {
   const navigation = useNavigation();
@@ -63,7 +63,7 @@ const LoginScreen: React.FC = () => {
   return (
     <SafeAreaView style={styles.safeArea}>
       <ImageBackground
-        source={bgImage}
+        source={IMAGES.AppBackgroundImage}
         style={styles.imageBackground}
         resizeMode="cover">
         <KeyboardAvoidingView

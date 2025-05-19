@@ -8,15 +8,15 @@ import {
   TouchableOpacity,
   SafeAreaView,
 } from 'react-native';
-import GradientButton from '../common/GradientButton';
-import bgImage from '../assets/background.png';
 import OtpIllustration from '../assets/otp_illustration.svg';
-import Colors from '../common/Colors';
-import AccountSuccessModal from '../common/AccountSucessModal';
 import {useNavigation, useRoute, RouteProp} from '@react-navigation/native';
 import LeftArrow from '../assets/left_arrow.svg';
-import type {RootStackParamList} from '../../types';
-import {Fonts} from '../common/fonts';
+import { IMAGES } from '../../../common/utils/images';
+import { RootStackParamList } from '../../../../types';
+import GradientButton from '../../atoms/GradientButton';
+import AccountSuccessModal from '../../../common/AccountSucessModal';
+import { Colors } from 'react-native/Libraries/NewAppScreen';
+import { Fonts } from '../../../common/fonts';
 
 type OtpVerificationRouteProp = RouteProp<
   RootStackParamList,
@@ -85,7 +85,7 @@ const OtpVerificationScreen = () => {
           </TouchableOpacity>
           <Text style={styles.header}>OTP Verification</Text>
         </View>
-        <ImageBackground source={bgImage} style={styles.container}>
+        <ImageBackground source={IMAGES.AppBackgroundImage} style={styles.container}>
           <View style={styles.illustrationBox}>
             <OtpIllustration
               width={258} // or use a value based on your layout

@@ -10,13 +10,13 @@ import {
   ImageBackground,
   TouchableOpacity,
 } from 'react-native';
-import CustomTextInput from '../common/CustomInput';
-import Colors from '../common/Colors';
-import GradientButton from '../common/GradientButton';
 import { useNavigation } from '@react-navigation/native';
-import bgImage from '../assets/background.png';
 import LeftArrow from '../assets/left_arrow.svg'; // SVG back icon
-import { Fonts } from '../common/fonts';
+import { IMAGES } from '../../../common/utils/images';
+import { Fonts } from '../../../common/fonts';
+import Colors from '../../../common/Colors';
+import GradientButton from '../../atoms/GradientButton';
+import CustomTextInput from '../../../common/CustomInput';
 
 const OtpLoginScreen = () => {
   const [email, setEmail] = useState('');
@@ -30,7 +30,7 @@ const OtpLoginScreen = () => {
     <KeyboardAvoidingView
       behavior={Platform.OS === 'ios' ? 'padding' : undefined}
       style={styles.flex}>
-      <ImageBackground source={bgImage} style={styles.imageBackground} resizeMode="cover">
+      <ImageBackground source={IMAGES.AppBackgroundImage} style={styles.imageBackground} resizeMode="cover">
         <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
           <View style={styles.container}>
             <TouchableOpacity onPress={() => navigation.goBack()} style={styles.backButton}>

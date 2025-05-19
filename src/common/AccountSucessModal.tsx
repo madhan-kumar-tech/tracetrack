@@ -10,7 +10,7 @@ import {
 import Colors from '../common/Colors';
 import Profile from '../assets/profile_contact.svg';
 import {Fonts} from './fonts';
-import GradientButton from './GradientButton';
+import GradientButton from '../components/atoms/GradientButton';
 import LinearGradient from 'react-native-linear-gradient';
 
 interface Props {

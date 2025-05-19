@@ -1,9 +1,9 @@
 import React, { ReactNode }from 'react';
 import { View, TextInput, StyleSheet, Text,TextInputProps } from 'react-native';
-import Colors from '../common/Colors';
-import { Fonts } from './fonts';
+import Colors from '../../../common/Colors';
+import { Fonts } from '../../../common/fonts';
 
-interface CommonTextInputProps extends TextInputProps {
+interface TextInputFieldProps extends TextInputProps {
   value: string;
   onChangeText: (text: string) => void;
   placeholder?: string;
@@ -11,7 +11,7 @@ interface CommonTextInputProps extends TextInputProps {
   error?: string;
 }
 
-const CommonTextInput: React.FC<CommonTextInputProps> = ({
+const TextInputField: React.FC<TextInputFieldProps> = ({
   value,
   onChangeText,
   placeholder,
@@ -62,4 +62,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default CommonTextInput;
+export default TextInputField;
