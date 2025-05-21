@@ -11,15 +11,15 @@ import {
   ScrollView,
   Modal,
 } from 'react-native';
-import TextInputField from '../common/CommonTextInput';
-import GradientButton from '../common/GradientButton';
-import BackgroundImage from '../assets/background.png';
-import Colors from '../common/Colors';
+import TextInputField from '../../atoms/CommonTextInput';
+import GradientButton from '../../atoms/GradientButton';
+import Colors from '../../../common/Colors';
 import { useNavigation } from '@react-navigation/native';
-import LeftArrow from '../assets/left_arrow.svg';
-import { Fonts } from '../common/fonts';
-import UpArrowIcon from '../assets/uparrow_Icon.svg';
-import BarCodeIcon from '../assets/barcode.svg';
+import LeftArrow from '../../../assets/left_arrow.svg';
+import { Fonts } from '../../../common/fonts';
+import UpArrowIcon from '../../../assets/uparrow_Icon.svg';
+import BarCodeIcon from '../../../assets/barcode.svg';
+import { IMAGES } from '../../../common/images';
 
 const AddVehicleScreen = () => {
   const [imei, setImei] = useState('');
@@ -62,7 +62,7 @@ const AddVehicleScreen = () => {
 
   return (
     <SafeAreaView style={{ flex: 1 }}>
-      <ImageBackground source={BackgroundImage} style={styles.container} resizeMode="cover">
+      <ImageBackground source={IMAGES.AppBackgroundImage} style={styles.container} resizeMode="cover">
         <KeyboardAvoidingView behavior={Platform.OS === 'ios' ? 'padding' : undefined} style={{ flex: 1 }}>
             <View style={styles.headerIcon}>
             <TouchableOpacity onPress={() => navigation.goBack()}>

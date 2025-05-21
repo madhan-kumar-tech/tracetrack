@@ -6,16 +6,16 @@ import {
   StyleSheet,
   TouchableOpacity,
 } from 'react-native';
-import Colors from './Colors';
-import Eye from '../assets/eye.svg';
-import EyeClose from '../assets/eye_close.svg';
-import { Fonts } from './fonts';
+import Colors from '../../../common/Colors';
+import Eye from '../../../assets/eye.svg';
+import EyeClose from '../../../assets/eye_close.svg';
+import { Fonts } from '../../../common/fonts';
 
 interface CustomTextInputProps extends TextInputProps {
   showToggleIcon?: boolean;
 }
 
-const CustomTextInput: React.FC<CustomTextInputProps> = ({
+export const CustomTextInput: React.FC<CustomTextInputProps> = ({
   showToggleIcon = false,
   secureTextEntry,
   value,
@@ -99,5 +99,3 @@ const styles = StyleSheet.create({
     fontFamily: Fonts.Regular,
   },
 });
-
-export default CustomTextInput;

@@ -4,14 +4,13 @@ import {
   View,
   Text,
   StyleSheet,
-  TouchableOpacity,
   Dimensions,
 } from 'react-native';
-import Colors from '../common/Colors';
-import Profile from '../assets/profile_contact.svg';
-import {Fonts} from './fonts';
-import GradientButton from './GradientButton';
+import Profile from '../../../assets/profile_contact.svg';
 import LinearGradient from 'react-native-linear-gradient';
+import Colors from '../../../common/Colors';
+import { Fonts } from '../../../common/fonts';
+import GradientButton from '../../atoms/GradientButton';
 
 interface Props {
   visible: boolean;

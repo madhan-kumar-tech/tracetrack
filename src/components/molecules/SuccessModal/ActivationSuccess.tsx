@@ -5,13 +5,12 @@ import {
   StyleSheet,
   Linking,
 } from 'react-native';
-import Icon from 'react-native-vector-icons/FontAwesome';
-import CreateAccountSvg from '../assets/create_account.svg'; // SVG as component
-import GradientButton from '../common/GradientButton';
-import Colors from '../common/Colors';
-import { Fonts } from '../common/fonts';
-import WhatsAppIcon from '../assets/whatsapp.svg';
-
+import CreateAccountSvg from '../../../assets/create_account.svg'; // SVG as component
+import GradientButton from '../../atoms/GradientButton';
+import Colors from '../../../common/Colors';
+import { Fonts } from '../../../common/fonts';
+import WhatsAppIcon from '../../../assets/whatsapp.svg';
+//This screen need to a reusable component so that we can use it in other screens as well like password changed successfully.
 const ActivationSuccessScreen = () => {
 
   const handleContactPress = () => {

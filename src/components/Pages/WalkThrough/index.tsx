@@ -9,14 +9,14 @@ import {
   ViewToken,
   ViewabilityConfig,
 } from 'react-native';
-import GradientButton from '../common/GradientButton';
-import BackgroundImage from '../assets/background.png';
-import Slide1 from '../assets/slide_img1.svg';
-import Slide2 from '../assets/slide_img2.svg';
-import Slide3 from '../assets/slide_img3.svg';
-import Colors from '../common/Colors';
+import GradientButton from '../../atoms/GradientButton';
+import Slide1 from '../../../assets/slide_img1.svg';
+import Slide2 from '../../../assets/slide_img2.svg';
+import Slide3 from '../../../assets/slide_img3.svg';
+import Colors from '../../../common/Colors';
 import {useNavigation} from '@react-navigation/native';
-import { Fonts } from '../common/fonts';
+import { Fonts } from '../../../common/fonts';
+import { IMAGES } from '../../../common/images';
 
 const {width} = Dimensions.get('window');
 
@@ -75,7 +75,7 @@ const WalkthroughScreen = () => {
   );
 
   return (
-    <ImageBackground source={BackgroundImage} style={styles.background}>
+    <ImageBackground source={IMAGES.AppBackgroundImage} style={styles.background}>
       <FlatList
         ref={flatListRef}
         data={slides}

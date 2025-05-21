@@ -9,13 +9,13 @@ import {
   ScrollView,
   TouchableOpacity,
 } from 'react-native';
-import ForgotPasswordSVG from '../assets/forget_password.svg';
-import backgroundImg from '../assets/background.png';
-import GradientButton from '../common/GradientButton';
-import LeftArrow from '../assets/left_arrow.svg';
+import ForgotPasswordSVG from '../../../../assets/forget_password.svg';
+import GradientButton from '../../../atoms/GradientButton';
+import LeftArrow from '../../../../assets/left_arrow.svg';
 import type { NativeStackScreenProps } from '@react-navigation/native-stack';
-import Colors from '../common/Colors';
-import { Fonts } from '../common/fonts';
+import Colors from '../../../../common/Colors';
+import { Fonts } from '../../../../common/fonts';
+import { IMAGES } from '../../../../common/images';
 
 type RootStackParamList = {
   ForgotPassword: undefined;
@@ -27,7 +27,7 @@ const ForgotPasswordScreen: React.FC<Props> = ({ navigation }) => {
   return (
     <SafeAreaView style={styles.safeArea}>
       <ImageBackground
-        source={backgroundImg}
+        source={IMAGES.AppBackgroundImage}
         style={styles.background}
         resizeMode="cover">
         <ScrollView contentContainerStyle={styles.container}>

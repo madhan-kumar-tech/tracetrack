@@ -10,13 +10,13 @@ import {
   KeyboardAvoidingView,
   ScrollView,
 } from 'react-native';
-import Colors from '../../common/Colors';
-import GradientButton from '../../common/GradientButton';
-import bgImage from '../../assets/background.png';
-import Eye from '../../assets/eye.svg';
-import EyeClose from '../../assets/eye_close.svg';
+import Colors from '../../../../common/Colors';
+import GradientButton from '../../../atoms/GradientButton';
+import Eye from '../../../../assets/eye.svg';
+import EyeClose from '../../../../assets/eye_close.svg';
 import {useNavigation} from '@react-navigation/native';
-import { Fonts } from '../../common/fonts';
+import { Fonts } from '../../../../common/fonts';
+import { IMAGES } from '../../../../common/images';
 
 const CreateAccountScreen = () => {
   const navigation = useNavigation();
@@ -63,7 +63,7 @@ const CreateAccountScreen = () => {
   return (
     <SafeAreaView style={{flex: 1}}>
       <ImageBackground
-        source={bgImage}
+        source={IMAGES.AppBackgroundImage}
         style={styles.container}
         resizeMode="cover">
         <KeyboardAvoidingView style={{flex: 1}} behavior="padding">

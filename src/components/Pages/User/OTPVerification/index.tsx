@@ -8,22 +8,22 @@ import {
   TouchableOpacity,
   SafeAreaView,
 } from 'react-native';
-import GradientButton from '../common/GradientButton';
-import bgImage from '../assets/background.png';
-import OtpIllustration from '../assets/otp_illustration.svg';
-import Colors from '../common/Colors';
-import AccountSuccessModal from '../common/AccountSucessModal';
+import OtpIllustration from '../../../../assets/otp_illustration.svg';
 import {useNavigation, useRoute, RouteProp} from '@react-navigation/native';
-import LeftArrow from '../assets/left_arrow.svg';
-import type {RootStackParamList} from '../../types';
-import {Fonts} from '../common/fonts';
+import LeftArrow from '../../../../assets/left_arrow.svg';
+import type {RootStackParamList} from '../../../../../types';
+import GradientButton from '../../../atoms/GradientButton';
+import AccountSuccessModal from '../../../molecules/SuccessModal/AccountSucessModal';
+import Colors from '../../../../common/Colors';
+import { Fonts } from '../../../../common/fonts';
+import { IMAGES } from '../../../../common/images';
 
 type OtpVerificationRouteProp = RouteProp<
   RootStackParamList,
   'OTPVerification'
 >;
 
-const OtpVerificationScreen = () => {
+export const OtpVerification = () => {
   const navigation = useNavigation();
   const route = useRoute<OtpVerificationRouteProp>();
   const {isFromForgotPassword} = route.params ?? {};
@@ -85,7 +85,7 @@ const OtpVerificationScreen = () => {
           </TouchableOpacity>
           <Text style={styles.header}>OTP Verification</Text>
         </View>
-        <ImageBackground source={bgImage} style={styles.container}>
+        <ImageBackground source={IMAGES.AppBackgroundImage} style={styles.container}>
           <View style={styles.illustrationBox}>
             <OtpIllustration
               width={258} // or use a value based on your layout
@@ -244,4 +244,4 @@ const styles = StyleSheet.create({
   }
 });
 
-export default OtpVerificationScreen;
+export default OtpVerification;

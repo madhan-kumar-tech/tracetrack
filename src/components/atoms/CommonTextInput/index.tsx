@@ -1,7 +1,7 @@
 import React, { ReactNode }from 'react';
 import { View, TextInput, StyleSheet, Text,TextInputProps } from 'react-native';
-import Colors from '../common/Colors';
-import { Fonts } from './fonts';
+import Colors from '../../../common/Colors';
+import { Fonts } from '../../../common/fonts';
 
 interface CommonTextInputProps extends TextInputProps {
   value: string;
