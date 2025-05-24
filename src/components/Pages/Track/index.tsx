@@ -7,39 +7,30 @@ import {
   TouchableOpacity,
   SafeAreaView,
 } from 'react-native';
-import SatelliteIcon from '../assets/map.svg';
-import CutIcon from '../assets/location.svg';
-import CalendarIcon from '../assets/calendar.svg';
-import RefreshIcon from '../assets/retry.svg';
-import SafeParkingIcon from '../assets/safe_parking.svg';
-import EngineCutOff from '../assets/unlock.svg';
-import BatteryIcon from '../assets/voltage.svg';
-import DownArrow from '../assets/down_arrow.svg';
-import LogoIcon from '../assets/tracetrack_splash.svg';
-import {Fonts} from '../common/fonts';
-import Colors from '../common/Colors';
-import ShareIcon from '../assets/share_primary.svg';
+import {Fonts} from '../../../common/fonts';
+import Colors from '../../../common/Colors';
+import { IMAGES } from '../../../common/images';
 
-const actionIcons = [SatelliteIcon, CutIcon, CalendarIcon, RefreshIcon];
+const actionIcons = [IMAGES.SatelliteIcon, IMAGES.CutIcon, IMAGES.CalendarIcon, IMAGES.RefreshIcon];
 const TrackScreen = () => {
   return (
     <SafeAreaView style={styles.container}>
       {/* Header */}
       <View style={styles.header}>
-        <LogoIcon width={30} height={30} />
+        <IMAGES.LogoIcon width={30} height={30} />
         <Text style={styles.logoText}>Tracetrack</Text>
       </View>
 
       {/* Vehicle Dropdown */}
       <View style={styles.vehicleDropdown}>
         <Text style={styles.vehicleText}>TN 19 A 4567 - Car</Text>
-        <DownArrow width={18} height={18} />
+        <IMAGES.DownArrow width={18} height={18} />
       </View>
 
       {/* Map Placeholder */}
       <View style={styles.mapContainer}>
         <Image
-          source={{uri: '../assets/background.png'}}
+          source={IMAGES.AppBackgroundImage}
           style={styles.mapImage}
         />
         <View style={styles.fabContainer}>
@@ -59,7 +50,7 @@ const TrackScreen = () => {
             Ignition: <Text style={{color: Colors.black}}>On</Text>
           </Text>
           <View style={styles.voltageContainer}>
-            <BatteryIcon width={18} height={18} />
+            <IMAGES.BatteryIcon width={18} height={18} />
             <Text style={styles.voltageText}>12.5 V</Text>
           </View>
           <Text style={styles.updatedText}>Last updated 2 mins ago</Text>
@@ -68,16 +59,16 @@ const TrackScreen = () => {
           <Text style={styles.movementText}>
             Parked 1d 7hrs 54m from 8:23 AM, Apr 20 2025
           </Text>
-          <ShareIcon width={30} height={30} />
+          <IMAGES.ShareIcon width={30} height={30} />
         </View>
         <View style={styles.buttonRow}>
           <TouchableOpacity style={styles.safeParkingBtn}>
-            <SafeParkingIcon width={25} height={30} />
+            <IMAGES.SafeParkingIcon width={25} height={30} />
 
             <Text style={styles.buttonText}>Safe Parking</Text>
           </TouchableOpacity>
           <TouchableOpacity style={styles.cutoffBtn}>
-            <EngineCutOff width={25} height={30} />
+            <IMAGES.EngineCutOff width={25} height={30} />
 
             <Text style={styles.buttonText}>Engine Cut-off</Text>
           </TouchableOpacity>

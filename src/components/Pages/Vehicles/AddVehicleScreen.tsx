@@ -14,14 +14,11 @@ import {
 import GradientButton from '../../atoms/GradientButton';
 import Colors from '../../../common/Colors';
 import { useNavigation } from '@react-navigation/native';
-import LeftArrow from '../../../assets/left_arrow.svg';
 import { Fonts } from '../../../common/fonts';
-import UpArrowIcon from '../../../assets/uparrow_Icon.svg';
-import BarCodeIcon from '../../../assets/barcode.svg';
 import { IMAGES } from '../../../common/images';
 import CommonTextInput from '../../atoms/CommonTextInput';
 
-const AddVehicleScreen = () => {
+const AddVehicleScreen = () => {                
   const [imei, setImei] = useState('');
   const [registration, setRegistration] = useState('');
   const [vehicleType, setVehicleType] = useState('');
@@ -66,7 +63,7 @@ const AddVehicleScreen = () => {
         <KeyboardAvoidingView behavior={Platform.OS === 'ios' ? 'padding' : undefined} style={{ flex: 1 }}>
             <View style={styles.headerIcon}>
             <TouchableOpacity onPress={() => navigation.goBack()}>
-              <LeftArrow width="8" height={18} />
+              <IMAGES.LeftArrow width="8" height={18} />
             </TouchableOpacity>
           </View>
           <ScrollView contentContainerStyle={styles.inner} keyboardShouldPersistTaps="handled">
@@ -80,7 +77,7 @@ const AddVehicleScreen = () => {
               value={imei}
               onChangeText={setImei}
               error={errors.imei}
-              rightIcon={<BarCodeIcon width={24} height={24} />}
+              rightIcon={<IMAGES.BarCodeIcon width={24} height={24} />}
             />
 
             <CommonTextInput
@@ -99,7 +96,7 @@ const AddVehicleScreen = () => {
                 pointerEvents="none"
                 error={errors.vehicleType}
                  onChangeText={setRegistration}
-                rightIcon={<UpArrowIcon width={18} height={8} />}
+                rightIcon={<IMAGES.UpArrowIcon width={18} height={8} />}
               />
             </TouchableOpacity>
 

@@ -12,8 +12,6 @@ import {
 } from 'react-native';
 import Colors from '../../../../common/Colors';
 import GradientButton from '../../../atoms/GradientButton';
-import Eye from '../../../../assets/eye.svg';
-import EyeClose from '../../../../assets/eye_close.svg';
 import {useNavigation} from '@react-navigation/native';
 import { Fonts } from '../../../../common/fonts';
 import { IMAGES } from '../../../../common/images';
@@ -117,9 +115,9 @@ const CreateAccountScreen = () => {
               />
               <TouchableOpacity onPress={() => setSecureEntry(!secureEntry)}>
                 {secureEntry ? (
-                  <EyeClose width={24} height={20} />
+                  <IMAGES.EyeClose width={24} height={20} />
                 ) : (
-                  <Eye width={24} height={20} />
+                  <IMAGES.Eye width={24} height={20} />
                 )}
               </TouchableOpacity>
             </View>
@@ -139,9 +137,9 @@ const CreateAccountScreen = () => {
               <TouchableOpacity
                 onPress={() => setSecureConfirm(!secureConfirm)}>
                   {secureEntry ? (
-                  <EyeClose width={24} height={20} />
+                  <IMAGES.EyeClose width={24} height={20} />
                 ) : (
-                  <Eye width={24} height={20} />
+                  <IMAGES.Eye width={24} height={20} />
                 )}
               </TouchableOpacity>
             </View>

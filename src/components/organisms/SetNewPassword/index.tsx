@@ -10,7 +10,6 @@ import {
 } from 'react-native';
 import GradientButton from '../../atoms/GradientButton';
 import {useNavigation} from '@react-navigation/native';
-import LeftArrow from '../../../assets/left_arrow.svg';
 import Colors from '../../../common/Colors';
 import {Fonts} from '../../../common/fonts';
 import {CustomTextInput} from '../../atoms/CustomTextInput';
@@ -54,7 +53,7 @@ const SetNewPasswordScreen = () => {
         <TouchableOpacity
           style={styles.backButton}
           onPress={() => navigation.goBack()}>
-          <LeftArrow width="8" height={18} />
+          <IMAGES.LeftArrow width="8" height={18} />
         </TouchableOpacity>
 
         <Text style={styles.title}>Set Your New Password</Text>

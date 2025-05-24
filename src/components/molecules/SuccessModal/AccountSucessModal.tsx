@@ -6,11 +6,11 @@ import {
   StyleSheet,
   Dimensions,
 } from 'react-native';
-import Profile from '../../../assets/profile_contact.svg';
 import LinearGradient from 'react-native-linear-gradient';
 import Colors from '../../../common/Colors';
 import { Fonts } from '../../../common/fonts';
 import GradientButton from '../../atoms/GradientButton';
+import {IMAGES} from '../../../common/images';
 
 interface Props {
   visible: boolean;
@@ -45,7 +45,7 @@ const AccountSuccessModal = ({
 
           {/* Icon inside the ellipse */}
           <View style={styles.profileWrapper}>
-            <Profile width={86} height={86} />
+            <IMAGES.Profile width={86} height={86} />
           </View>
 
           {/* Text and Button */}

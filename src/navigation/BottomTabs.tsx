@@ -1,23 +1,13 @@
 import React from 'react';
 import {View} from 'react-native';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
-import HomeScreen from '../components/TrackScreen';
+import HomeScreen from '../components/Pages/Track';
 import VehiclesScreen from '../components/VehiclesScreen';
-import TripHistoryScreen from '../components/TripHistoryScreen';
-import AlertsScreen from '../components/AlertsScreen';
-import MoreScreen from '../components/MoreScreen';
+import TripHistoryScreen from '../components/Pages/TripHistory';
+import AlertsScreen from '../components/Pages/Alert';
+import MoreScreen from '../components/Pages/More';
 import Colors from '../common/Colors';
-
-import TrackIconActive from '../assets/track_primary.svg';
-import TrackIconInactive from '../assets/track_black.svg';
-import VehiclesIconActive from '../assets/vechicle_primary.svg';
-import VehiclesIconInactive from '../assets/vechicle_black.svg';
-import TripHistoryIconActive from '../assets/trip_history_primary.svg';
-import TripHistoryIconInactive from '../assets/trip_history_black.svg';
-import AlertsIconActive from '../assets/alert_primary.svg';
-import AlertsIconInactive from '../assets/alert_black.svg';
-import MoreIconActive from '../assets/more_primary.svg';
-import MoreIconInactive from '../assets/more_black.svg';
+import { IMAGES } from '../common/images';
 import {SvgProps} from 'react-native-svg';
 
 const Tab = createBottomTabNavigator();
@@ -70,7 +60,7 @@ const BottomTabs = () => {
         component={HomeScreen}
         options={{
           tabBarIcon: ({focused}) =>
-            getStyledIcon(focused, TrackIconActive, TrackIconInactive),
+            getStyledIcon(focused, IMAGES.TrackIconActive,IMAGES.TrackIconInactive),
         }}
       />
       <Tab.Screen
@@ -78,7 +68,7 @@ const BottomTabs = () => {
         component={VehiclesScreen}
         options={{
           tabBarIcon: ({focused}) =>
-            getStyledIcon(focused, VehiclesIconActive, VehiclesIconInactive),
+            getStyledIcon(focused, IMAGES.VehiclesIconActive, IMAGES.VehiclesIconInactive),
         }}
       />
       <Tab.Screen
@@ -88,8 +78,8 @@ const BottomTabs = () => {
           tabBarIcon: ({focused}) =>
             getStyledIcon(
               focused,
-              TripHistoryIconActive,
-              TripHistoryIconInactive,
+              IMAGES.TripHistoryIconActive,
+              IMAGES.TripHistoryIconInactive,
             ),
         }}
       />
@@ -98,7 +88,7 @@ const BottomTabs = () => {
         component={AlertsScreen}
         options={{
           tabBarIcon: ({focused}) =>
-            getStyledIcon(focused, AlertsIconActive, AlertsIconInactive),
+            getStyledIcon(focused, IMAGES.AlertsIconActive, IMAGES.AlertsIconInactive),
         }}
       />
       <Tab.Screen
@@ -106,7 +96,7 @@ const BottomTabs = () => {
         component={MoreScreen}
         options={{
           tabBarIcon: ({focused}) =>
-            getStyledIcon(focused, MoreIconActive, MoreIconInactive),
+            getStyledIcon(focused, IMAGES.MoreIconActive,IMAGES.MoreIconInactive),
         }}
       />
     </Tab.Navigator>

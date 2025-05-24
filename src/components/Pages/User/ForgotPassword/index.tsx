@@ -9,9 +9,7 @@ import {
   ScrollView,
   TouchableOpacity,
 } from 'react-native';
-import ForgotPasswordSVG from '../../../../assets/forget_password.svg';
 import GradientButton from '../../../atoms/GradientButton';
-import LeftArrow from '../../../../assets/left_arrow.svg';
 import type { NativeStackScreenProps } from '@react-navigation/native-stack';
 import Colors from '../../../../common/Colors';
 import { Fonts } from '../../../../common/fonts';
@@ -34,14 +32,14 @@ const ForgotPasswordScreen: React.FC<Props> = ({ navigation }) => {
           {/* Header */}
           <View style={styles.header}>
             <TouchableOpacity onPress={() => navigation.goBack()}>
-              <LeftArrow width="8" height={18} />
+              <IMAGES.LeftArrow width="8" height={18} />
             </TouchableOpacity>
             <Text style={styles.headerTitle}>Forgot Password</Text>
           </View>
 
           {/* SVG Illustration */}
           <View style={styles.imageWrapper}>
-            <ForgotPasswordSVG width="300" height={292} />
+            <IMAGES.ForgotPasswordSVG width="300" height={292} />
           </View>
 
           {/* Title and Description */}

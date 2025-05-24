@@ -6,15 +6,10 @@ import {
   ScrollView,
   TouchableOpacity,
 } from 'react-native';
-import ParkingGreen from '../assets/parking_green.svg';
-import ParkingBlack from '../assets/parking_black.svg';
-import ParkingRed from '../assets/parking_red.svg';
-import ParkingYellow from '../assets/parking_yellow.svg';
-import KeyImgae from '../assets/key.svg';
-import SafeParkingFilled from '../assets/Safeparking_filled.svg';
 import GradientButton from '../components/atoms/GradientButton';
 import {Fonts} from '../common/fonts';
 import Colors from '../common/Colors';
+import { IMAGES } from '../common/images';
 
 const vehicles = [
   {
@@ -57,22 +52,22 @@ const VehiclesScreen = () => {
     switch (type) {
       case 'moving':
         return {
-          icon: <ParkingGreen width={20} height={20} />,
+          icon: <IMAGES.ParkingGreen width={20} height={20} />,
           color: Colors.success,
         };
       case 'idle':
         return {
-          icon: <ParkingYellow width={20} height={20} />,
+          icon: <IMAGES.ParkingYellow width={20} height={20} />,
           color: Colors.yellow,
         };
       case 'parked':
         return {
-          icon: <ParkingBlack width={20} height={20} />,
+          icon: <IMAGES.ParkingBlack width={20} height={20} />,
           color: Colors.black,
         };
       case 'nodata':
         return {
-          icon: <ParkingRed width={20} height={20} />,
+          icon: <IMAGES.ParkingRed width={20} height={20} />,
           color: Colors.error,
         };
       default:
@@ -95,7 +90,7 @@ const VehiclesScreen = () => {
               <Text style={styles.vehicleNumber}>{vehicle.number}</Text>
               {vehicle.status && (
                 <View style={styles.status}>
-                  <KeyImgae width={16} height={16} />
+                  <IMAGES.KeyImgae width={16} height={16} />
                   <Text style={styles.statusText}>: {vehicle.status}</Text>
                 </View>
               )}
@@ -123,7 +118,7 @@ const VehiclesScreen = () => {
                   {justifyContent: 'space-between', alignItems: 'center',marginLeft:4},
                 ]}>
                 <View style={{flexDirection: 'row', alignItems: 'center'}}>
-                  <SafeParkingFilled width={16} height={16} />
+                  <IMAGES.SafeParkingFilled width={16} height={16} />
                   <Text style={styles.safeModeText}>
                     {' '}
                     Safe Mode:{' '}

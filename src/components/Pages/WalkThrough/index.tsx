@@ -10,9 +10,6 @@ import {
   ViewabilityConfig,
 } from 'react-native';
 import GradientButton from '../../atoms/GradientButton';
-import Slide1 from '../../../assets/slide_img1.svg';
-import Slide2 from '../../../assets/slide_img2.svg';
-import Slide3 from '../../../assets/slide_img3.svg';
 import Colors from '../../../common/Colors';
 import {useNavigation} from '@react-navigation/native';
 import { Fonts } from '../../../common/fonts';
@@ -26,21 +23,21 @@ const slides = [
     title: 'Track Live. Park Safe.',
     description:
       'Get your vehicle’s real-time location anytime, anywhere with high accuracy. Activate Safe Parking Mode when your vehicle is idle — receive instant alerts if it moves, shakes, or faces tampering while ignition is off.',
-    ImageComponent: Slide1,
+    ImageComponent: IMAGES.Slide1,
   },
   {
     id: '2',
     title: 'Set Zones. Stay Notified.',
     description:
       'Create custom geo-fences and get alerts when your vehicle enters or exits specific areas — perfect for tracking company vehicle movements in and out of office, factory, or designated work zones.',
-    ImageComponent: Slide2,
+    ImageComponent: IMAGES.Slide2,
   },
   {
     id: '3',
     title: 'Control Ignition From Anywhere',
     description:
       'Turn your vehicle’s engine OFF directly from the app. This feature adds a layer of security and control — perfect when you’re away and need to manage access remotely.',
-    ImageComponent: Slide3,
+    ImageComponent: IMAGES.Slide3,
   },
 ];
 
@@ -152,7 +149,7 @@ const styles = StyleSheet.create({
   pagination: {
     flexDirection: 'row',
     justifyContent: 'center',
-    marginVertical: 100,
+    marginVertical: 70,
   },
   dot: {
     height: 14,

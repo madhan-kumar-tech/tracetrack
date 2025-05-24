@@ -34,7 +34,7 @@ const GradientButton: React.FC<GradientButtonProps> = ({
       <LinearGradient
         colors={[Colors.primaryDark, Colors.primary]}
         start={{x: 0, y: 0}}
-        end={{x: 1, y: 1}}
+        end={{x: 0, y: 1}}
         style={[styles.button, {width}]}
         >
         <Text style={[styles.text, textStyle]}>{title}</Text>

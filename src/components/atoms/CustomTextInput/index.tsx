@@ -7,8 +7,7 @@ import {
   TouchableOpacity,
 } from 'react-native';
 import Colors from '../../../common/Colors';
-import Eye from '../../../assets/eye.svg';
-import EyeClose from '../../../assets/eye_close.svg';
+import { IMAGES } from '../../../common/images'
 import { Fonts } from '../../../common/fonts';
 
 interface CustomTextInputProps extends TextInputProps {
@@ -67,9 +66,9 @@ export const CustomTextInput: React.FC<CustomTextInputProps> = ({
         {showToggleIcon && secureTextEntry && (
           <TouchableOpacity onPress={() => setHidePassword(!hidePassword)}>
             {hidePassword ? (
-              <EyeClose width={24} height={20} />
+              <IMAGES.EyeClose width={24} height={20} />
             ) : (
-              <Eye width={24} height={20} />
+              <IMAGES.Eye width={24} height={20} />
             )}
           </TouchableOpacity>
         )}

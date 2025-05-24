@@ -12,7 +12,6 @@ import {
 } from 'react-native';
 import {CustomTextInput} from '../../../atoms/CustomTextInput';
 import { useNavigation } from '@react-navigation/native';
-import LeftArrow from '../../../../assets/left_arrow.svg'; // SVG back icon
 import GradientButton from '../../../atoms/GradientButton';
 import Colors from '../../../../common/Colors';
 import { Fonts } from '../../../../common/fonts';
@@ -34,7 +33,7 @@ const OtpLoginScreen = () => {
         <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
           <View style={styles.container}>
             <TouchableOpacity onPress={() => navigation.goBack()} style={styles.backButton}>
-              <LeftArrow width={8} height={18} />
+              <IMAGES.LeftArrow width={8} height={18} />
             </TouchableOpacity>
 
             <View style={styles.content}>

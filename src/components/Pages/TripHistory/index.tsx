@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import {
   View,
   Text,
@@ -6,16 +6,13 @@ import {
   ScrollView,
   TouchableOpacity,
 } from 'react-native';
-import Colors from '../common/Colors';
-import {Fonts} from '../common/fonts';
-import CalendarIcon from '../assets/calendar_outline.svg';
-import MapIcon from '../assets/map_outline.svg';
-import DownArrow from '../assets/down_arrow.svg';
-import NoTripHistoryIcon from '../assets/folder_Icon.svg';
+import Colors from '../../../common/Colors';
+import {Fonts} from '../../../common/fonts';
+import { IMAGES } from '../../../common/images';
 
 const TripHistoryScreen = () => {
   const [isTripHistory, setIsTripHistory] = useState(false)
-  
+
   const trips = [
     {
       time: '09:20AM - 09:45AM',
@@ -33,11 +30,15 @@ const TripHistoryScreen = () => {
     },
   ];
 
+  useEffect(() =>{
+    setIsTripHistory(false);
+  },[])
+
   return (
     <View style={styles.container}>
       <View style={styles.tripContainer}>
         <Text style={styles.header}>Trip History</Text>
-        <CalendarIcon
+        <IMAGES.CalendarOutlineIcon
           width={25}
           height={25}
           color={Colors.primary}
@@ -47,7 +48,7 @@ const TripHistoryScreen = () => {
 
       <View style={styles.selectorContainer}>
         <Text style={styles.vehicleSelector}>TN 19 A 4567 - Car</Text>
-        <DownArrow width={20} height={20} color={Colors.primary} />
+        <IMAGES.DownArrow width={20} height={20} color={Colors.primary} />
       </View>
 
       <View style={styles.dateContainer}>
@@ -56,7 +57,7 @@ const TripHistoryScreen = () => {
 
       {isTripHistory ? (
         <View style={styles.noHistoryContainer}>
-          <NoTripHistoryIcon width={310} height={250} color={Colors.primary} />
+          <IMAGES.NoTripHistoryIcon width={310} height={250} color={Colors.primary} />
         </View>
       ) : (
         <ScrollView contentContainerStyle={styles.tripList}>
@@ -86,7 +87,7 @@ const TripHistoryScreen = () => {
 
               {/* Map button aligned right */}
               <TouchableOpacity style={styles.mapButton}>
-                <MapIcon width={16} height={16} color={Colors.primary} />
+                <IMAGES.MapIcon width={16} height={16} color={Colors.primary} />
                 <Text style={styles.mapButtonText}>VIEW ON MAP</Text>
               </TouchableOpacity>
             </View>

@@ -8,9 +8,7 @@ import {
   TouchableOpacity,
   SafeAreaView,
 } from 'react-native';
-import OtpIllustration from '../../../../assets/otp_illustration.svg';
 import {useNavigation, useRoute, RouteProp} from '@react-navigation/native';
-import LeftArrow from '../../../../assets/left_arrow.svg';
 import type {RootStackParamList} from '../../../../../types';
 import GradientButton from '../../../atoms/GradientButton';
 import AccountSuccessModal from '../../../molecules/SuccessModal/AccountSucessModal';
@@ -81,14 +79,14 @@ export const OtpVerification = () => {
       <View style={styles.contentWrapper}>
         <View style={styles.headerIcon}>
           <TouchableOpacity onPress={() => navigation.goBack()}>
-            <LeftArrow width="8" height={18} style={styles.leftArrowIcon} />
+            <IMAGES.LeftArrow width="8" height={18} style={styles.leftArrowIcon} />
           </TouchableOpacity>
           <Text style={styles.header}>OTP Verification</Text>
         </View>
         <ImageBackground source={IMAGES.AppBackgroundImage} style={styles.container}>
           <View style={styles.illustrationBox}>
-            <OtpIllustration
-              width={258} // or use a value based on your layout
+            <IMAGES.OtpIllustration
+              width={258}
               height={307}
               style={styles.illustrationImage}
             />
