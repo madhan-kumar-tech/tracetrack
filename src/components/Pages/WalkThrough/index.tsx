@@ -136,7 +136,7 @@ const styles = StyleSheet.create({
   },
   slide: {
     width: width,
-    paddingHorizontal: 16,
+    paddingHorizontal: 20,
   },
   title: {
     fontSize: 24,
