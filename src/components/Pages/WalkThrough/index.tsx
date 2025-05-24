@@ -15,8 +15,8 @@ import Slide2 from '../../../assets/slide_img2.svg';
 import Slide3 from '../../../assets/slide_img3.svg';
 import Colors from '../../../common/Colors';
 import {useNavigation} from '@react-navigation/native';
-import { Fonts } from '../../../common/fonts';
-import { IMAGES } from '../../../common/images';
+import {Fonts} from '../../../common/fonts';
+import {IMAGES} from '../../../common/images';
 
 const {width} = Dimensions.get('window');
 
@@ -75,7 +75,9 @@ const WalkthroughScreen = () => {
   );
 
   return (
-    <ImageBackground source={IMAGES.AppBackgroundImage} style={styles.background}>
+    <ImageBackground
+      source={IMAGES.AppBackgroundImage}
+      style={styles.background}>
       <FlatList
         ref={flatListRef}
         data={slides}
@@ -95,7 +97,10 @@ const WalkthroughScreen = () => {
             key={index}
             style={[
               styles.dot,
-              {backgroundColor: currentIndex === index ? Colors.primary : Colors.placeholder},
+              {
+                backgroundColor:
+                  currentIndex === index ? Colors.primary : Colors.placeholder,
+              },
             ]}
           />
         ))}
@@ -127,11 +132,11 @@ const styles = StyleSheet.create({
     flex: 1,
     resizeMode: 'cover',
     justifyContent: 'space-between',
-    paddingVertical: 20,
+    paddingTop: 32,
   },
   slide: {
     width: width,
-    paddingHorizontal: 16,
+    paddingHorizontal: 20,
   },
   title: {
     fontSize: 24,
@@ -139,7 +144,7 @@ const styles = StyleSheet.create({
     marginBottom: 32,
     color: Colors.black,
     fontFamily: Fonts.Bold,
-    paddingHorizontal: 4
+    paddingHorizontal: 4,
   },
   description: {
     fontSize: 18,
@@ -147,12 +152,12 @@ const styles = StyleSheet.create({
     color: Colors.black,
     marginTop: 20,
     fontFamily: Fonts.Medium,
-    paddingHorizontal: 2
+    paddingHorizontal: 2,
   },
   pagination: {
     flexDirection: 'row',
     justifyContent: 'center',
-    marginVertical: 100,
+    margin: 60,
   },
   dot: {
     height: 14,
@@ -164,11 +169,11 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'space-around',
     paddingHorizontal: 12,
-    marginBottom:70
+    marginBottom: 70,
   },
-  image:{
-
-  }
+  image: {
+    marginTop: 58,
+  },
 });
 
 export default WalkthroughScreen;
