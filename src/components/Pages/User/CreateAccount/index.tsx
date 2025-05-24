@@ -80,7 +80,7 @@ const CreateAccountScreen = () => {
               placeholder="Name"
               value={form.name}
               onChangeText={text => handleChange('name', text)}
-              placeholderTextColor={Colors.black}
+              placeholderTextColor={Colors.lightgrey}
             />
             {errors.name && <Text style={styles.error}>{errors.name}</Text>}
 
@@ -91,7 +91,7 @@ const CreateAccountScreen = () => {
               onChangeText={text => handleChange('mobile', text)}
               keyboardType="phone-pad"
               maxLength={10}
-              placeholderTextColor={Colors.black}
+              placeholderTextColor={Colors.lightgrey}
             />
             {errors.mobile && <Text style={styles.error}>{errors.mobile}</Text>}
 
@@ -102,7 +102,7 @@ const CreateAccountScreen = () => {
               onChangeText={text => handleChange('email', text)}
               keyboardType="email-address"
               autoCapitalize="none"
-              placeholderTextColor={Colors.black}
+              placeholderTextColor={Colors.lightgrey}
             />
             {errors.email && <Text style={styles.error}>{errors.email}</Text>}
 
@@ -113,7 +113,7 @@ const CreateAccountScreen = () => {
                 value={form.password}
                 onChangeText={text => handleChange('password', text)}
                 secureTextEntry={secureEntry}
-                placeholderTextColor={Colors.black}
+                placeholderTextColor={Colors.lightgrey}
               />
               <TouchableOpacity onPress={() => setSecureEntry(!secureEntry)}>
                 {secureEntry ? (
@@ -134,7 +134,7 @@ const CreateAccountScreen = () => {
                 value={form.confirmPassword}
                 onChangeText={text => handleChange('confirmPassword', text)}
                 secureTextEntry={secureConfirm}
-                placeholderTextColor={Colors.black}
+                placeholderTextColor={Colors.lightgrey}
               />
               <TouchableOpacity
                 onPress={() => setSecureConfirm(!secureConfirm)}>
@@ -188,24 +188,29 @@ const styles = StyleSheet.create({
   },
   input: {
     backgroundColor: Colors.accent,
-    borderRadius: 8,
+    borderRadius: 4,
     paddingHorizontal: 14,
     paddingVertical: 12,
     marginVertical: 6,
-    fontFamily: Fonts.Regular
-
+    fontFamily: Fonts.Regular,
+    color: Colors.black,
+    fontSize:16
   },
   passwordWrapper: {
     flexDirection: 'row',
     alignItems: 'center',
     backgroundColor: Colors.accent,
-    borderRadius: 8,
+    borderRadius: 4,
     paddingHorizontal: 14,
     marginVertical: 6,
   },
   passwordInput: {
     flex: 1,
     paddingVertical: 12,
+    color: Colors.black,
+    fontFamily: Fonts.Regular,
+    fontSize:16
+
   },
   eyeIcon: {
     width: 24,

@@ -164,6 +164,7 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'space-around',
     paddingHorizontal: 12,
+    marginBottom:70
   },
   image:{
 

@@ -11,7 +11,6 @@ import {
   ScrollView,
   Modal,
 } from 'react-native';
-import TextInputField from '../../atoms/CommonTextInput';
 import GradientButton from '../../atoms/GradientButton';
 import Colors from '../../../common/Colors';
 import { useNavigation } from '@react-navigation/native';
@@ -20,6 +19,7 @@ import { Fonts } from '../../../common/fonts';
 import UpArrowIcon from '../../../assets/uparrow_Icon.svg';
 import BarCodeIcon from '../../../assets/barcode.svg';
 import { IMAGES } from '../../../common/images';
+import CommonTextInput from '../../atoms/CommonTextInput';
 
 const AddVehicleScreen = () => {
   const [imei, setImei] = useState('');
@@ -75,7 +75,7 @@ const AddVehicleScreen = () => {
               You&apos;re just a few steps away from smarter, safer vehicle tracking
             </Text>
 
-            <TextInputField
+            <CommonTextInput
               placeholder="Enter IMEI number or scan from device"
               value={imei}
               onChangeText={setImei}
@@ -83,7 +83,7 @@ const AddVehicleScreen = () => {
               rightIcon={<BarCodeIcon width={24} height={24} />}
             />
 
-            <TextInputField
+            <CommonTextInput
               placeholder="Registration number"
               value={registration}
               onChangeText={setRegistration}
@@ -92,7 +92,7 @@ const AddVehicleScreen = () => {
 
             {/* Dropdown Field */}
             <TouchableOpacity onPress={() => setVehicleTypeModalVisible(true)}>
-              <TextInputField
+              <CommonTextInput
                 placeholder="Select Vehicle type"
                 value={vehicleType}
                 editable={false}

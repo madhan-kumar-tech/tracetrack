@@ -11,6 +11,7 @@ import Colors from '../../../common/Colors';
 import { Fonts } from '../../../common/fonts';
 import WhatsAppIcon from '../../../assets/whatsapp.svg';
 //This screen need to a reusable component so that we can use it in other screens as well like password changed successfully.
+
 const ActivationSuccessScreen = () => {
 
   const handleContactPress = () => {
@@ -71,6 +72,7 @@ const styles = StyleSheet.create({
     fontSize: 24,
     fontFamily:Fonts.Bold,
     textAlign: 'center',
+    marginTop:20
   },
   subtitle: {
     color: Colors.primary,
@@ -97,7 +99,7 @@ const styles = StyleSheet.create({
     backgroundColor: Colors.primary,
     paddingVertical: 14,
     paddingHorizontal: 30,
-    borderRadius: 8,
+    borderRadius: 4,
     alignSelf: 'center',
   },
   buttonText: {

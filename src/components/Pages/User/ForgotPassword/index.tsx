@@ -57,7 +57,7 @@ const ForgotPasswordScreen: React.FC<Props> = ({ navigation }) => {
           <TextInput
             style={styles.input}
             placeholder="Enter your registered mail id"
-            placeholderTextColor="#888"
+            placeholderTextColor={Colors.lightgrey}
             keyboardType="email-address"
           />
 
@@ -122,7 +122,7 @@ const styles = StyleSheet.create({
   input: {
     backgroundColor: Colors.accent,
     padding: 14,
-    borderRadius: 8,
+    borderRadius: 4,
     fontSize: 14,
     marginBottom: 20,
   },

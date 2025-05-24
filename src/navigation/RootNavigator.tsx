@@ -9,8 +9,8 @@ import {OtpVerification} from '../components/Pages/User/OTPVerification';
 import ActivationSuccessScreen from '../components/molecules/SuccessModal/ActivationSuccess';
 import ForgotPasswordScreen from '../components/Pages/User/ForgotPassword';
 import SetNewPasswordScreen from '../components/organisms/SetNewPassword';
-import Homescreen from '../components/Pages/Homescreen/Homescreen';
 import WalkthroughScreen from '../components/Pages/WalkThrough';
+import BottomTabs from './BottomTabs';
 
 export type RootStackParamList = {
   Login: undefined;
@@ -30,12 +30,10 @@ const Stack = createNativeStackNavigator<RootStackParamList>();
 
 const RootNavigator = () => {
   return (
-    <NavigationContainer>
-      <Stack.Navigator
-        initialRouteName="Walkthrough"
-        screenOptions={{headerShown: false}}>
+     <NavigationContainer>
+      <Stack.Navigator screenOptions={{headerShown: false}} initialRouteName='Walkthrough'>
+        {/* Screens without bottom tab */}
         <Stack.Screen name="Walkthrough" component={WalkthroughScreen} />
-
         <Stack.Screen name="Login" component={LoginScreen} />
         <Stack.Screen name="MailOTPScreen" component={OTPScreen} />
         <Stack.Screen
@@ -44,13 +42,12 @@ const RootNavigator = () => {
         />
         <Stack.Screen name="AddVehicle" component={AddVehicleScreen} />
         <Stack.Screen name="CreateAccount" component={CreateAccountScreen} />
-        <Stack.Screen
-          name="ActivationSuccess"
-          component={ActivationSuccessScreen}
-        />
+        <Stack.Screen name="ActivationSuccess" component={ActivationSuccessScreen} />
         <Stack.Screen name="ForgotPassword" component={ForgotPasswordScreen} />
         <Stack.Screen name="SetNewPassword" component={SetNewPasswordScreen} />
-        <Stack.Screen name="Home" component={Homescreen} />
+
+        {/* Main app with bottom tabs */}
+        <Stack.Screen name="Home" component={BottomTabs} />
       </Stack.Navigator>
     </NavigationContainer>
   );
